@@ -1,0 +1,626 @@
+/* ==========================================================================
+   [CSS] 1. GLOBAL ROOT VARIABLES & BASE STYLES
+   ========================================================================== */
+:root {
+    --bg-navy: #0F172A;       /* 메인 배경: 딥 네이비 */
+    --bg-light: #F8FAFC;      /* 콘텐츠 배경: 매우 밝은 회색 */
+    --bg-white: #FFFFFF;      /* 카드 및 컨테이너 배경 */
+    --primary: #0EA5E9;       /* 포인트 컬러: 밝은 블루/청록 */
+    --primary-hover: #0284C7; /* 포인트 호버 컬러 */
+    --text-dark: #334155;     /* 기본 글자: 짙은 회색 */
+    --text-muted: #64748B;    /* 보조 글자: 중간 회색 */
+    --text-light: #F1F5F9;    /* 어두운 배경용 밝은 글자 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* 네비게이션 이동 시 부드러운 스크롤 */
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; /* 외부 폰트 실패 시 시스템 폰트 대체 구조 */
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 공통 섹션 영문 라벨 */
+.section-label {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--primary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* 공통 섹션 제목 */
+.section-title {
+    font-family: 'Montserrat', 'Pretendard', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--bg-navy);
+    margin-bottom: 40px;
+}
+
+/* 버튼 기본 스타일 및 마우스 호버 애니메이션 */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--bg-white);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px); /* 호버 시 살짝 위로 이동 효과 */
+}
+
+.btn-outline {
+    border: 1px solid var(--text-muted);
+    color: var(--text-dark);
+    background-color: transparent;
+}
+
+.btn-outline:hover {
+    border-color: var(--bg-navy);
+    color: var(--bg-navy);
+    background-color: rgba(15, 23, 42, 0.05);
+    transform: translateY(-2px);
+}
+
+/* 자바스크립트가 화면 스크롤 진입을 감지하면 visible 클래스를 붙여 나타나게 만듭니다 */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   [CSS] 2. HEADER & NAVIGATION STYLES
+   ========================================================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid #E2E8F0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--bg-navy);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    font-family: 'Montserrat', 'Pretendard', sans-serif;
+}
+
+/* 현재 화면에 보이는 위치의 네비게이션 항목 강조 클래스 */
+.nav-item a:hover,
+.nav-item.active a {
+    color: var(--primary);
+}
+
+
+/* ==========================================================================
+   [CSS] 3. HERO SECTION STYLES
+   ========================================================================== */
+#home {
+    background-color: var(--bg-navy);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    padding-top: 80px;
+}
+
+.hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.hero-label {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--primary);
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.hero-title {
+    font-family: 'Montserrat', 'Pretendard', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+}
+
+.hero-main-text {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.hero-sub-text {
+    font-size: 1.1rem;
+    color: #94A3B8;
+    max-width: 700px;
+    margin-bottom: 40px;
+}
+
+.hero-tags {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    background-color: rgba(14, 165, 233, 0.15);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-buttons .btn-outline {
+    border-color: #475569;
+    color: var(--text-light);
+}
+
+.hero-buttons .btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--text-light);
+}
+
+
+/* ==========================================================================
+   [CSS] 4. PROFILE SECTION STYLES
+   ========================================================================== */
+#profile {
+    background-color: var(--bg-white);
+    max-width: 100%;
+}
+
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.profile-info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile-info-item {
+    display: flex;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 12px;
+}
+
+.profile-key {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    width: 120px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.profile-value {
+    font-weight: 500;
+    color: var(--bg-navy);
+}
+
+.profile-text-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-desc-highlight {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--bg-navy);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.profile-desc-body {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+
+/* ==========================================================================
+   [CSS] 5. STRENGTHS SECTION STYLES
+   ========================================================================== */
+#strengths {
+    background-color: var(--bg-light);
+    max-width: 100%;
+}
+
+.strengths-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.strength-card {
+    background-color: var(--bg-white);
+    padding: 40px 30px;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+    transition: all 0.3s ease;
+}
+
+/* 카드 컴포넌트 마우스 호버 효과 설정 */
+.strength-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+    border-color: var(--primary);
+}
+
+.strength-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--bg-navy);
+    margin-bottom: 15px;
+}
+
+.strength-card-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* ==========================================================================
+   [CSS] 6. JOURNEY SECTION STYLES
+   ========================================================================== */
+#journey {
+    background-color: var(--bg-white);
+    max-width: 100%;
+}
+
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 30px;
+}
+
+/* 타임라인 수직 중앙선 구현 */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 4px;
+    width: 2px;
+    height: 100%;
+    background-color: #E2E8F0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* 타임라인 각 노드의 인디케이터 서클 */
+.timeline-dot {
+    position: absolute;
+    top: 6px;
+    left: -30px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #CBD5E1;
+    border: 2px solid var(--bg-white);
+    transition: background-color 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+    background-color: var(--primary);
+}
+
+.timeline-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--bg-navy);
+    margin-bottom: 10px;
+}
+
+.timeline-content {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+/* ==========================================================================
+   [CSS] 7. FUTURE CTA SECTION STYLES
+   ========================================================================== */
+#future {
+    background-color: var(--bg-navy);
+    color: var(--text-light);
+    text-align: center;
+    max-width: 100%;
+    padding: 120px 20px;
+}
+
+.future-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#future .section-title {
+    color: #FFFFFF;
+}
+
+.future-main-text {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+}
+
+.future-desc {
+    font-size: 1.1rem;
+    color: #94A3B8;
+    line-height: 1.7;
+    margin-bottom: 45px;
+}
+
+
+/* ==========================================================================
+   [CSS] 8. FOOTER STYLES
+   ========================================================================== */
+.footer {
+    background-color: #0B1224;
+    color: #64748B;
+    padding: 60px 20px;
+    border-top: 1px solid #1E293B;
+    text-align: center;
+}
+
+.footer-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+    letter-spacing: 1;
+}
+
+
+/* ==========================================================================
+   [CUSTOM] 하단 안내 버튼 정중앙 정렬 스타일
+   ========================================================================== */
+.btn-container {
+    display: block;       /* 부모 요소를 확실한 블록 영역으로 지정 */
+    width: 100%;          /* 화면의 가로 너비를 100% 꽉 채움 */
+    text-align: center;   /* 블록 내부의 인라인 요소(버튼)를 정중앙으로 정렬 */
+    margin-top: 3rem;     /* 기획서에 있던 상단 여백 유지 */
+}
+
+.btn-container .btn {
+    display: inline-block; /* 버튼이 텍스트 정렬 영향을 받으면서도 크기를 가질 수 있도록 설정 */
+}
+
+/* ==========================================================================
+   [CUSTOM] PROJECTS 페이지 전용 레이아웃 및 카드 스타일
+   ========================================================================== */
+
+/* 프로젝트 가독성을 확보하기 위한 1~2열 반응형 그리드 선언 */
+.projects-grid {
+    display: block;
+    margin-top: 2.5rem;
+}
+
+/* 프로젝트 독립형 카드 컴포넌트 */
+.project-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 마우스를 올렸을 때 정적으로 약간 위로 이동 및 청록/블루 계열 포인트 테두리 강조 */
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    border-color: #008080; /* 포인트 컬러인 청록색(Teal) 테두리 부여 */
+}
+
+/* 우측 상단 배치용 넘버링 */
+.project-number {
+    font-family: 'JetBrains+Mono', monospace;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #008080;
+    margin-bottom: 0.5rem;
+}
+
+.project-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0f172a; /* 차분한 딥 네이비/다크 계열 */
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.project-one-liner {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+/* 카드 내부 주요 내용 리스트 포맷팅 */
+.project-details {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.project-details li {
+    font-size: 0.95rem;
+    color: #64748b;
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* 리스트 항목 앞의 차분한 대시(-) 기호 불릿 처리 */
+.project-details li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: #94a3b8;
+}
+
+/* 태그 그룹 정렬 컨테이너 */
+.project-tags {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* 미디어나 모바일 가독성 보장 화면 대응 */
+@media (min-width: 768px) {
+    .projects-grid {
+        /* PC 화면 등 넓은 해상도에서 안정감을 가질 수 있도록 레이아웃 마진 최적화 */
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* ==========================================================================
+   [CUSTOM] 메인 홈 화면(index.html) 버튼 스타일 (해시태그 하늘색 매칭)
+   ========================================================================== */
+
+/* 홈 화면 버튼 기본 상태 */
+.btn-home {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    
+    /* 해시태그에서 사용하는 선명하고 세련된 하늘색 프로퍼티 */
+    color: #0284c7; 
+    background-color: transparent;
+    border: 1px solid #0284c7;
+    
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    
+    /* 애니메이션이 튀지 않고 부드럽게 감기도록 설정 */
+    transition: all 0.25s ease-in-out;
+}
+
+/* ⚡ 마우스를 올렸을 때 (Hover Effect) */
+.btn-home:hover {
+    background-color: #f0f9ff;   /* 투명하고 은은한 미색 파스텔 하늘색 */
+    color: #0369a1;              /* 폰트는 한 단계 묵직한 블루로 가독성 및 진정성 확보 */
+    border-color: #38bdf8;        /* 테두리는 조금 더 밝고 선명한 하늘색 스카이 톤 */
+    
+    transform: translateY(-3px); /* 은은하게 위로 뜨는 인터랙션 효과 */
+    box-shadow: 0 4px 12px rgba(38, 189, 248, 0.15); /* 버튼 주변에 잔잔한 하늘색 연무 효과 */
+}
+
+/* 버튼을 누르고 있는 순간 (Click 피드백) */
+.btn-home:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(38, 189, 248, 0.1);
+}
