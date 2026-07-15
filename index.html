@@ -3,60 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I AM | 신상윤 프로필</title>
-    
+    <meta name="description" content="성수동에 사는 신상윤의 취향과 일상을 담은 편안한 자기소개 페이지입니다.">
+    <meta name="theme-color" content="#f8f3ea">
+    <title>안녕하세요, 신상윤입니다</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">본문으로 바로가기</a>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
-    <header class="header">
-        <div class="nav-container">
-            <a href="index.html" class="logo">I AM</a>
-            <nav>
-                <ul class="nav-menu">
-                    <li class="nav-item active" data-page="home"><a href="index.html">HOME</a></li>
-                    <li class="nav-item" data-page="profile"><a href="html/profile.html">PROFILE</a></li>
-                    <li class="nav-item" data-page="journey"><a href="html/journey.html">JOURNEY</a></li>
-                    <li class="nav-item" data-page="projects"><a href="html/projects.html">PROJECTS</a></li> <li class="nav-item" data-page="future"><a href="html/future.html">FUTURE</a></li>
-                </ul>
+    <header class="site-header" id="top">
+        <div class="nav-wrap">
+            <a class="brand" href="#top" aria-label="페이지 맨 위로">
+                <span class="brand-dot" aria-hidden="true"></span>
+                SANGYOON
+            </a>
+
+            <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+                <span class="sr-only">메뉴 열기</span>
+                <span></span><span></span>
+            </button>
+
+            <nav class="main-nav" id="main-nav" aria-label="주요 메뉴">
+                <a href="#about">저는요</a>
+                <a href="#favorites">좋아해요</a>
+                <a href="#lately">요즘은요</a>
+                <a href="#quiz">맞혀봐요</a>
+                <a href="#ssafy">싸피에서</a>
             </nav>
         </div>
     </header>
 
-    <section id="home">
-        <div class="hero-inner fade-in-element">
-            <span class="hero-label">HELLO, I AM</span>
-            <h1 class="hero-title">신상윤</h1>
-            <p class="hero-main-text">
-                임베디드에서 금융 백엔드로,<br>새로운 방향을 설계하고 있습니다.
-            </p>
-            <p class="hero-sub-text">
-                SSAFY에서 Java와 백엔드 개발을 공부하며 정확하고 안정적인 금융 서비스를 만드는 개발자를 목표로 하고 있습니다. 
-            </p>
-            <div class="hero-tags">
-                <span class="tag">#SSAFY</span>
-                <span class="tag">#Backend</span>
-                <span class="tag">#Java</span>
-                <span class="tag">#FinancialIT</span>
+    <main id="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy reveal">
+                <p class="eyebrow"><span>01년생 · 성수동</span> 반가워요!</p>
+                <h1 id="hero-title">
+                    안녕하세요<br>
+                    <em>신상윤입니다</em><br>
+                    잘 부탁드립니다
+                </h1>
+                <p class="hero-description">
+                    낯은 조금 가리지만 친해지면 꽤 수다스러워집니다.<br>
+                    여행과 게임, 그리고 집에서 보내는 조용한 시간을 좋아해요.
+                </p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#about">천천히 알아보기</a>
+                    <a class="button button-ghost" href="#quiz">상윤 퀴즈 풀기 <span aria-hidden="true">↗</span></a>
+                </div>
+                <p class="hero-footnote">* 어느 작품의 제목이 살짝 떠오른다면 맞습니다.</p>
             </div>
-            <div class="home-btn-group fade-in-element" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem;">
-                <a href="html/profile.html" class="btn btn-home">나에 대해 알아보기 (PROFILE)</a>
-                <a href="html/journey.html" class="btn btn-home">나의 여정 보기 (JOURNEY)</a>
-                <a href="html/projects.html" class="btn btn-home">프로젝트 경험 보기 (PROJECTS)</a>
-                <a href="html/future.html" class="btn btn-home">미래 목표 보기 (FUTURE)</a>
+
+            <div class="hero-visual reveal" data-delay="1">
+                <div class="orbit orbit-one" aria-hidden="true"></div>
+                <div class="orbit orbit-two" aria-hidden="true"></div>
+                <div class="hero-card">
+                    <div class="hero-card-label">
+                        <span>정사일주</span>
+                        <span aria-hidden="true">🍂</span>
+                    </div>
+                    <img src="assets/red-snake-v2.png" alt="가을잎을 곁에 둔 연한 코랄빛의 귀여운 붉은 뱀 캐릭터" width="1254" height="1254">
+                    <p>요즘 사주팔자 보는 재미에 빠진<br><strong>귀여운 붉은 뱀</strong> 한 마리</p>
+                </div>
+                <div class="floating-note note-top" aria-hidden="true">ISTP</div>
+                <div class="floating-note note-bottom" aria-hidden="true">가을이 좋아</div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="section about" id="about" aria-labelledby="about-title">
+            <div class="section-heading reveal">
+                <p class="section-kicker">ABOUT ME</p>
+                <h2 id="about-title">처음엔 조용하고,<br>친해지면 꽤 다릅니다.</h2>
+                <p>거창한 설명보다는, 알아두면 친해지기 쉬운 정보들만 모아봤어요.</p>
+            </div>
+
+            <div class="about-grid">
+                <article class="profile-card profile-card-main reveal">
+                    <span class="card-number">01</span>
+                    <p class="small-label">NAME</p>
+                    <h3>신상윤</h3>
+                    <p class="card-copy">2001년생, 26살.<br>현재 성수동에 살고 있습니다.</p>
+                    <div class="profile-chips" aria-label="기본 정보">
+                        <span>ISTP</span>
+                        <span>임베디드시스템공학</span>
+                    </div>
+                </article>
+
+                <article class="profile-card reveal" data-delay="1">
+                    <span class="card-icon" aria-hidden="true">◌</span>
+                    <p class="small-label">MY PACE</p>
+                    <h3>즉흥파</h3>
+                    <p class="card-copy">계획표를 빼곡히 채우기보다는 그날의 기분과 흐름을 따라가는 편이에요.</p>
+                </article>
+
+                <article class="profile-card profile-card-soft reveal" data-delay="2">
+                    <span class="card-icon" aria-hidden="true">☁</span>
+                    <p class="small-label">COMFORT ZONE</p>
+                    <h3>혼자만의 시간</h3>
+                    <p class="card-copy">사람들과 보내는 시간도 좋지만, 제대로 충전되는 건 역시 혼자 있을 때.</p>
+                </article>
+
+                <article class="profile-card profile-card-wide reveal">
+                    <p class="small-label">FIRST → LATER</p>
+                    <div class="mood-change">
+                        <div>
+                            <span aria-hidden="true">···</span>
+                            <strong>처음에는</strong>
+                            <p>낯을 조금 가리고<br>주로 듣는 편</p>
+                        </div>
+                        <span class="mood-arrow" aria-hidden="true">→</span>
+                        <div>
+                            <span aria-hidden="true">!!!</span>
+                            <strong>친해지면</strong>
+                            <p>생각보다 말이 많은<br>은근한 수다쟁이</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section favorites" id="favorites" aria-labelledby="favorites-title">
+            <div class="section-heading section-heading-row reveal">
+                <div>
+                    <p class="section-kicker">THINGS I LIKE</p>
+                    <h2 id="favorites-title">이런 것들을 좋아해요.</h2>
+                </div>
+                <p>좋아하는 이야기를 나누다 보면<br>생각보다 금방 친해질지도 몰라요.</p>
+            </div>
+
+            <div class="favorites-grid">
+                <article class="favorite-card favorite-travel reveal">
+                    <div class="favorite-topline"><span>TRAVEL</span><span>01</span></div>
+                    <div class="travel-stamp" aria-hidden="true">TAIWAN<br><small>RECENT TRIP</small></div>
+                    <div>
+                        <span class="favorite-emoji" aria-hidden="true">✈</span>
+                        <h3>여행</h3>
+                        <p>익숙한 곳을 벗어나 새로운 풍경과 분위기를 만나는 걸 좋아합니다. 최근 여행지는 대만!</p>
+                    </div>
+                </article>
+
+                <article class="favorite-card favorite-game reveal" data-delay="1">
+                    <div class="favorite-topline"><span>GAME</span><span>02</span></div>
+                    <span class="favorite-emoji" aria-hidden="true">⌁</span>
+                    <h3>게임</h3>
+                    <p>주로 하는 게임은 롤.<br>같이 게임 이야기하는 것도 환영합니다.</p>
+                    <div class="pixel-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                </article>
+
+                <article class="favorite-card favorite-autumn reveal" data-delay="2">
+                    <div class="favorite-topline"><span>SEASON</span><span>03</span></div>
+                    <span class="favorite-emoji" aria-hidden="true">🍂</span>
+                    <h3>가을</h3>
+                    <p>덥지도 춥지도 않은 공기. 가장 좋아하는 계절은 가을이고, 여름은 조금 힘들어요.</p>
+                </article>
+
+                <article class="favorite-card favorite-dog reveal" data-delay="1">
+                    <div class="favorite-topline"><span>ANIMAL</span><span>04</span></div>
+                    <span class="favorite-emoji" aria-hidden="true">🐕</span>
+                    <h3>리트리버</h3>
+                    <p>보고만 있어도 기분이 좋아지는 동물. 밝고 다정한 리트리버를 좋아합니다.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section lately" id="lately" aria-labelledby="lately-title">
+            <div class="section-heading reveal">
+                <p class="section-kicker">LATELY</p>
+                <h2 id="lately-title">요즘의 저를 설명하는<br>세 가지 장면입니다.</h2>
+            </div>
+
+            <div class="lately-list">
+                <article class="lately-row reveal">
+                    <span class="lately-index">01</span>
+                    <div class="lately-title-wrap">
+                        <span class="mini-icon snake-mini" aria-hidden="true">蛇</span>
+                        <h3>정사일주,<br>붉은 뱀 이야기</h3>
+                    </div>
+                    <p>최근 사주팔자를 가볍게 찾아보는 재미에 빠졌어요. 제 일주는 정사일주라서, 붉은 뱀 캐릭터도 이 페이지에 데려왔습니다.</p>
+                    <span class="row-tag">NEW INTEREST</span>
+                </article>
+
+                <article class="lately-row reveal">
+                    <span class="lately-index">02</span>
+                    <div class="lately-title-wrap">
+                        <span class="mini-icon" aria-hidden="true">▶</span>
+                        <h3>집에서<br>느긋한 유튜브</h3>
+                    </div>
+                    <p>쉬는 날에는 약속을 꽉 채우기보다 집에서 유튜브를 보며 가만히 쉬는 쪽을 선호합니다.</p>
+                    <span class="row-tag">DAY OFF</span>
+                </article>
+
+                <article class="lately-row reveal">
+                    <span class="lately-index">03</span>
+                    <div class="lately-title-wrap">
+                        <span class="mini-icon" aria-hidden="true">♡</span>
+                        <h3>두 살 조카의<br>영상 한 편</h3>
+                    </div>
+                    <p>요즘 가장 확실한 스트레스 해소법. 두 살짜리 조카 영상을 보고 있으면 복잡했던 기분도 금방 풀립니다.</p>
+                    <span class="row-tag">HAPPY MOMENT</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="section quiz-section" id="quiz" aria-labelledby="quiz-section-title">
+            <div class="quiz-intro reveal">
+                <p class="section-kicker">MINI GAME</p>
+                <h2 id="quiz-section-title">지금까지 저를<br>얼마나 알게 됐나요?</h2>
+                <p>둘 중 저에게 더 가까운 답을 골라보세요.<br>틀려도 전혀 괜찮습니다.</p>
+                <div class="quiz-stats" aria-hidden="true">
+                    <span><strong>6</strong> QUESTIONS</span>
+                    <span><strong>2</strong> CHOICES</span>
+                </div>
+            </div>
+
+            <div class="quiz-card reveal" data-delay="1">
+                <div class="quiz-card-top">
+                    <span class="quiz-count">QUESTION <b id="quiz-current">01</b> / 06</span>
+                    <span class="quiz-score">SCORE <b id="quiz-score">0</b></span>
+                </div>
+                <div class="quiz-progress" aria-hidden="true"><span id="quiz-progress-bar"></span></div>
+                <div class="quiz-content" id="quiz-content" aria-live="polite">
+                    <p>퀴즈를 불러오는 중입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section ssafy" id="ssafy" aria-labelledby="ssafy-title">
+            <div class="ssafy-card reveal">
+                <div class="ssafy-copy">
+                    <p class="section-kicker">AT SSAFY</p>
+                    <h2 id="ssafy-title">금융 개발자라는<br>목표를 향해 가는 중.</h2>
+                    <p>지금은 SSAFY에서 배우고 있습니다. 기술 이름을 많이 나열하기보다는, 기본을 단단히 쌓고 사람들과 함께 끝까지 만들어보는 경험을 얻고 싶어요.</p>
+                </div>
+                <div class="goal-list" aria-label="SSAFY에서 이루고 싶은 점">
+                    <div><span>01</span><p>기본을<br><strong>단단하게</strong></p></div>
+                    <div><span>02</span><p>함께 만드는<br><strong>감각 익히기</strong></p></div>
+                    <div><span>03</span><p>끝까지 해낸<br><strong>경험 쌓기</strong></p></div>
+                </div>
+
+                <div class="study-invite">
+                    <div>
+                        <p class="section-kicker">STUDY WITH ME</p>
+                        <h3>코테부터 독서까지,<br>같이 공부할 분을 찾습니다.</h3>
+                    </div>
+                    <div class="study-invite-copy">
+                        <p>혼자 공부하는 것도 좋지만, SSAFY에서는 다양한 관심사를 가진 사람들과 꾸준히 배우는 경험을 해보고 싶어요. 가볍게 시작해 오래 이어갈 스터디라면 언제든 환영합니다.</p>
+                        <div class="study-tags" aria-label="함께하고 싶은 스터디">
+                            <span>코딩 테스트</span>
+                            <span>독서</span>
+                            <span>그 밖의 다양한 스터디</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
-        <div class="footer-logo">SANGYOON SHIN</div>
-        <div class="footer-sub">Growing Backend Developer</div>
-        <p class="footer-copy">&copy; 2026 SANGYOON SHIN. All rights reserved.</p>
+        <div>
+            <p class="footer-kicker">THANKS FOR VISITING</p>
+            <h2>우리, 편하게 친해져요.</h2>
+        </div>
+        <div class="footer-bottom">
+            <p>신상윤의 작은 자기소개 페이지</p>
+            <p>© <span id="current-year">2026</span> SANGYOON SHIN</p>
+            <a href="#top">맨 위로 <span aria-hidden="true">↑</span></a>
+        </div>
     </footer>
 
     <script src="js/script.js" defer></script>
